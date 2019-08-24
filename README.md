@@ -13,53 +13,56 @@ $ yarn add @caohenghu/react-colorpicker
 
 ## Example
 
-```html
-<template>
-    <div :style="{background: color}">
-        <color-picker
-            theme="light"
-            :color="color"
-            :sucker-hide="false"
-            :sucker-canvas="suckerCanvas"
-            :sucker-area="suckerArea"
-            @changeColor="changeColor"
-            @openSucker="openSucker"
-        />
-    </div>
-</template>
+```javascript
+import ColorPicker from '@caohenghu/react-colorpicker'
 
-<script>
-    import colorPicker from '@caohenghu/react-colorpicker'
-
-    export default {
-        components: {
-            colorPicker
-        },
-        data() {
-            return {
-                color: '#59c7f9',
-                suckerCanvas: null,
-                suckerArea: [],
-                isSucking: false
-            }
-        },
-        methods: {
-            changeColor(color) {
-                const { r, g, b, a } = color.rgba
-                this.color = `rgba(${r}, ${g}, ${b}, ${a})`
-            },
-            openSucker(isOpen) {
-                if (isOpen) {
-                    // ... canvas be created
-                    // this.suckerCanvas = canvas
-                    // this.suckerArea = [x1, y1, x2, y2]
-                } else {
-                    // this.suckerCanvas && this.suckerCanvas.remove
-                }
-            }
+export default class App extends React.Component {
+    constructor(props) {
+        super(props)
+        this.changeColor = this.changeColor.bind(this)
+        this.openSucker = this.openSucker.bind(this)
+        this.state = {
+            color: '#59c7f9',
+            suckerCanvas: null,
+            suckerArea: []
         }
     }
-</script>
+
+    render() {
+        return (
+            <div style={{background: color}>
+                <ColorPicker
+                    theme="light"
+                    color={this.state.color}
+                    suckerHide={false}
+                    suckerCanvas={this.state.suckerCanvas}
+                    suckerArea={this.state.suckerArea}
+                    changeColor={this.changeColor}
+                    openSucker={this.openSucker}
+                />
+            </div>
+        )
+    }
+
+    changeColor(color) {
+        const { r, g, b, a } = color.rgba
+        this.setState({
+            color: `rgba(${r},${g},${b},${a})`
+        })
+    }
+
+    openSucker(isOpen) {
+        if (isOpen) {
+            // ... canvas be created, and get the area of canvas
+            // this.setState({
+            //     suckerCanvas: canvas,
+            //     suckerArea:  [x1, y1, x2, y2]
+            // })
+        } else {
+            // this.state.suckerCanvas && this.state.suckerCanvas.remove()
+        }
+    }
+}
 ```
 
 ## Options

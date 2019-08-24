@@ -87,7 +87,6 @@ export default class App extends React.Component {
     }
 
     render() {
-        // return React.createElement("div", null, "afffa");
         return (
             <div className="hu-page">
                 <div className="bg" style={{ background: this.state.color }}>

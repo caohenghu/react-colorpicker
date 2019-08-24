@@ -60,18 +60,18 @@ module.exports = options => {
 
     // 如果是本地开发，使用未压缩的插件
     if (isLocal) {
-        for (let key in plugin) {
-            plugin[key] = plugin[key]
+        plugin.forEach((item, i) => {
+            plugin[i] = item
                 .replace('.min', '')
                 .replace('.production', '.development')
-        }
-    }
-    for (let key in plugin) {
-        libs.push({
-            url: plugin[key],
-            isAsync: false
         })
     }
+    plugin.forEach(item => {
+        libs.push({
+            url: item,
+            isAsync: false
+        })
+    })
 
     return {
         entry: {
