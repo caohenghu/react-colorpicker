@@ -74,6 +74,7 @@ module.exports = options => {
     })
 
     return {
+        mode: isLocal ? 'development' : 'production',
         entry: {
             app: './src'
         },
@@ -81,7 +82,7 @@ module.exports = options => {
             publicPath: isLocal
                 ? ''
                 : '//' + env.host.cdn + '/react-colorpicker/',
-            filename: isLocal ? 'js/[name].js' : 'js/[name]-[hash:8].js',
+            filename: isLocal ? 'js/[name].js' : 'js/[name]-[hash:8].min.js',
             path: path.resolve('dist') // 打包后的目录，必须是绝对路径
         },
         module: {
