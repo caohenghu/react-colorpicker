@@ -1,6 +1,6 @@
 {
     "name": "@caohenghu/react-colorpicker",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Colorpicker of React Components",
     "main": "src/main.js",
     "scripts": {
@@ -9,9 +9,9 @@
         "gh": "node build/gh.js"
     },
     "keywords": [
-        "color",
+        "react",
         "colorpicker",
-        "react"
+        "color"
     ],
     "repository": {
         "type": "git",
