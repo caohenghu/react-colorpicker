@@ -1,12 +1,12 @@
 import './index.scss'
 import { setColorValue, rgb2hex } from './mixin'
-import Saturation from './Saturation'
-import Hue from './Hue'
-import Alpha from './Alpha'
-import Preview from './Preview'
-import Sucker from './Sucker'
-import Box from './Box'
-import Colors from './Colors'
+import Saturation from './saturation'
+import Hue from './hue'
+import Alpha from './alpha'
+import Preview from './preview'
+import Sucker from './sucker'
+import Box from './box'
+import Colors from './colors'
 
 export default class Index extends React.PureComponent {
     constructor(props) {
@@ -16,6 +16,7 @@ export default class Index extends React.PureComponent {
         this.saturation = React.createRef()
         this.hue = React.createRef()
         this.alpha = React.createRef()
+        this.preview = React.createRef()
         this.selectSaturation = this.selectSaturation.bind(this)
         this.selectHue = this.selectHue.bind(this)
         this.selectAlpha = this.selectAlpha.bind(this)
@@ -77,6 +78,7 @@ export default class Index extends React.PureComponent {
                     className="color-show"
                 >
                     <Preview
+                        ref={this.preview}
                         color={this.rgbaString}
                         width={this.previewWidth}
                         height={this.state.previewHeight}
@@ -180,6 +182,7 @@ export default class Index extends React.PureComponent {
         this.setText()
         setTimeout(() => {
             this.alpha.current.renderColor()
+            this.preview.current.renderColor()
         })
     }
 
@@ -191,12 +194,16 @@ export default class Index extends React.PureComponent {
             this.saturation.current.renderColor()
             this.saturation.current.renderSlide()
             this.alpha.current.renderColor()
+            this.preview.current.renderColor()
         })
     }
 
     selectAlpha(a) {
         this.setState({ a: a })
         this.setText()
+        setTimeout(() => {
+            this.preview.current.renderColor()
+        })
     }
 
     inputHex(color) {
@@ -217,7 +224,7 @@ export default class Index extends React.PureComponent {
             this.saturation.current.renderSlide()
             this.hue.current.renderSlide()
             this.alpha.current.renderColor()
-            this.alpha.current.renderSlide()
+            this.preview.current.renderColor()
         })
     }
 
@@ -240,6 +247,7 @@ export default class Index extends React.PureComponent {
             this.hue.current.renderSlide()
             this.alpha.current.renderColor()
             this.alpha.current.renderSlide()
+            this.preview.current.renderColor()
         })
     }
 
@@ -264,6 +272,7 @@ export default class Index extends React.PureComponent {
             this.hue.current.renderSlide()
             this.alpha.current.renderColor()
             this.alpha.current.renderSlide()
+            this.preview.current.renderColor()
         })
     }
 
@@ -277,11 +286,12 @@ export default class Index extends React.PureComponent {
             this.hue.current.renderSlide()
             this.alpha.current.renderColor()
             this.alpha.current.renderSlide()
+            this.preview.current.renderColor()
         })
     }
 
     getCurrentColor() {
-        return this.this.rgbaString
+        return this.rgbaString
     }
 }
 

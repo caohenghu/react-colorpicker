@@ -121,7 +121,7 @@ export default class Saturation extends React.PureComponent {
 Saturation.defaultProps = {
     color: '',
     hsv: {},
-    size: PropTypes.number,
+    size: 0,
     selectSaturation: () => {}
 }
 
