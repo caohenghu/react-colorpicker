@@ -1,7 +1,7 @@
 import './alpha.scss'
 import { createAlphaSquare, createLinearGradient } from './mixin'
 
-export default class Alpha extends React.Component {
+export default class Alpha extends React.PureComponent {
     constructor(props) {
         super(props)
         this.alpha = React.createRef()
@@ -13,10 +13,6 @@ export default class Alpha extends React.Component {
             slideAlphaStyle: {}
         }
     }
-
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     if (this.props.rgba.a !== nextProps.rgba.a)
-    // }
 
     render() {
         return (
