@@ -121,7 +121,8 @@ export default class Index extends React.PureComponent {
         ) {
             this.props.changeColor({
                 rgba: this.rgba,
-                hsv: this.hsv
+                hsv: this.hsv,
+                hex: this.hexString
             })
         }
     }
