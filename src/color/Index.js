@@ -218,7 +218,7 @@ export default class Index extends React.PureComponent {
             s,
             v,
             modelHex: color,
-            modelRgba: this.rgbaStringShort
+            modelRgba: `${r}, ${g}, ${b}, ${a}`
         })
         setTimeout(() => {
             this.saturation.current.renderColor()
@@ -239,7 +239,7 @@ export default class Index extends React.PureComponent {
             h,
             s,
             v,
-            modelHex: this.hexString,
+            modelHex: rgb2hex({ r, g, b, a }, true),
             modelRgba: color
         })
         setTimeout(() => {
