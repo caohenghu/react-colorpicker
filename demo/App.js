@@ -1,6 +1,6 @@
 import './app.scss'
-import ColorPicker from './color'
-import imgCover from './img/cover.jpg'
+import ColorPicker from '../src'
+import imgCover from './cover.jpg'
 
 export default class App extends React.Component {
     constructor(props) {

@@ -1,11 +1,11 @@
 {
     "name": "@caohenghu/react-colorpicker",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Colorpicker of React Components",
-    "main": "src/main.js",
+    "main": "src/index.js",
     "scripts": {
         "hot": "webpack-dev-server --env.config local  --env.local",
-        "pro": "webpack --env.config pro --env.pro",
+        "pro": "rm -rf dist && webpack --env.config pro --env.pro",
         "gh": "node build/gh.js"
     },
     "keywords": [
@@ -19,6 +19,9 @@
     },
     "author": "caohenghu <caohenghu@gmail.com>",
     "license": "MIT",
+    "files": [
+        "src"
+    ],
     "devDependencies": {
         "@babel/core": "^7.5.5",
         "@babel/preset-env": "^7.5.5",
@@ -26,7 +29,6 @@
         "autoprefixer": "^9.6.1",
         "babel-eslint": "^10.0.2",
         "babel-loader": "^8.0.6",
-        "clean-webpack-plugin": "^3.0.0",
         "css-loader": "^3.2.0",
         "eslint": "^6.2.1",
         "eslint-plugin-react": "^7.14.3",

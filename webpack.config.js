@@ -1,5 +1,4 @@
 const webpack = require('webpack')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -25,9 +24,7 @@ module.exports = options => {
     const rules = [
         {
             test: /\.js$/,
-            use: 'babel-loader',
-            include: /src/, // 只转化src目录下的js
-            exclude: /node_modules/ // 排除掉node_modules，优化打包速度
+            use: 'babel-loader'
         },
         {
             test: /\.scss$/,
@@ -52,9 +49,8 @@ module.exports = options => {
         }
     ]
     const plugins = [
-        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: './src/index.ejs',
+            template: './demo/index.ejs',
             filename: 'index.html',
             minify,
             libs
@@ -89,7 +85,7 @@ module.exports = options => {
     return {
         mode: isLocal ? 'development' : 'production',
         entry: {
-            app: './src'
+            app: './demo'
         },
         output: {
             publicPath: isLocal
